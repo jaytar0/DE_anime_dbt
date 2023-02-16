@@ -1,9 +1,9 @@
 {{ config(materialized='table') }}
 
-anime_directory AS (
+with anime_directory AS (
     SELECT
-        newId() as id,
-        newId() as details_id,
+        id,
+        details_id,
         name,
         type,
         episodes,
@@ -12,9 +12,9 @@ anime_directory AS (
         rating,
         rank,
         release_season,
-        CAST(release_year as DATETIME) AS release_year
+        release_year
     FROM
-        all_anime
+        ANIME_DATA.DBT_ANIME.ANIME_ANALYTICS
 )
 
 SELECT * FROM anime_directory
