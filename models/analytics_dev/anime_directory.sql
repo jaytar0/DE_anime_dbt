@@ -2,8 +2,8 @@
 
 anime_directory AS (
     SELECT
-        id,
-        details_id,
+        newId() as id,
+        newId() as details_id,
         name,
         type,
         episodes,
