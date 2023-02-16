@@ -1,6 +1,6 @@
 {{ config(materialized='table') }}
 
-anime_details AS (
+with anime_details AS (
     SELECT
         details_id,
         related_manga,
@@ -8,7 +8,7 @@ anime_details AS (
         staff,
         content_warning
     FROM
-        all_anime
+        ANIME_DATA.DBT_ANIME.ANIME_ANALYTICS
 )
 
 SELECT * FROM anime_details
