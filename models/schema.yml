@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: anime_directory
+    description: General information of transformed anime data
+    columns:
+      - name: id
+        description: ID of Anime
+        tests:
+          - not_null
+      - name: details_id
+        description: ID of Anime details
+        tests:
+          -not_null
+      - name: name
+        description: English name of anime
+      - name: type
+        description: Media category
+      - name: episodes
+        description: Episode count
+      - name: studio
+        description: Name of animation studio
+      - name: tags
+        description: Tags of genre categories
+      - name: rating
+        description: Average user rating
+      - name: rank
+        description: Anime site overall ranking, against all anime
+      - name: release_season
+        description: What season was it released, null if not TV
+      - name: release_year
+        description: Year of release
+
+  - name: anime_details
+    description: Least queried anime entry elements / extra details
+    columns:
+      - name: details_id
+        description: ID of Anime details
+        tests:
+          -not_null
+      - name: related_manga
+        description: List of related manga
+      - name: voice_actors
+        description: List of voice actors
+      - name: staff
+        description: List of staff members
+      - name: content_warning
+        description: Warning tags associated with anime
